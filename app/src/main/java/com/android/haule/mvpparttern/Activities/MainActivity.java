@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 import com.android.haule.mvpparttern.Model.MainPresenterImpl;
 import com.android.haule.mvpparttern.Presenter.MainPresenter;
 import com.android.haule.mvpparttern.R;
@@ -82,12 +81,12 @@ public class MainActivity extends BaseActivity implements MainView, View.OnClick
 
     @Override
     public void loginSuccess() {
-        Toast.makeText(this, "Login success", Toast.LENGTH_SHORT).show();
+        showSnackbar("Login success", wrapper);
     }
 
     @Override
     public void loginError() {
-        Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show();
+        showSnackbar("Login failed", wrapper);
     }
 
     @Override

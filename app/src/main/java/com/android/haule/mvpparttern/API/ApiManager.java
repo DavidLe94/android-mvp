@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class ApiManager {
     private String mUrlRequest = "https://jsonplaceholder.typicode.com/";
-    private static String URL_GET = "posts/1";
+    private static final  String URL_GET = "posts/1";
     //Instance singleton
     public static ApiManager instance;
     //Instance variable

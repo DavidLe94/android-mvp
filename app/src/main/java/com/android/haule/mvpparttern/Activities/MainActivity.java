@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
         edtEmail = findViewById(R.id.email);
         edtPass = findViewById(R.id.password);
         progressBar = findViewById(R.id.progressBar);
-
         presenter = new MainPresenterImpl(this);
     }
 
@@ -58,13 +57,11 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
     @Override
     public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
-
     }
 
     @Override
     public void hideProgress() {
         progressBar.setVisibility(View.GONE);
-
     }
 
     @Override

@@ -1,32 +1,42 @@
 package com.android.haule.mvpparttern.Activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.android.haule.mvpparttern.Model.MainPresenterImpl;
 import com.android.haule.mvpparttern.Presenter.MainPresenter;
 import com.android.haule.mvpparttern.R;
 import com.android.haule.mvpparttern.View.MainView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements MainView, View.OnClickListener {
-    private Button btnLogin;
-    private EditText edtEmail, edtPass;
-    private ProgressBar progressBar;
+public class MainActivity extends BaseActivity implements MainView, View.OnClickListener {
+    @BindView(R.id.layout_wrapper) RelativeLayout wrapper;
+    @BindView(R.id.login) Button btnLogin;
+    @BindView(R.id.email) EditText edtEmail;
+    @BindView(R.id.password) EditText edtPass;
+    @BindView(R.id.progressBar) ProgressBar progressBar;
 
     private MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+        setupUI(wrapper, this);
         initView();
         setEvent();
         callApi();
+    }
+
+    @Override
+    protected int getlayoutResoureId() {
+        return R.layout.activity_main;
     }
 
     private void callApi() {
@@ -38,10 +48,6 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
     }
 
     private void initView(){
-        btnLogin = findViewById(R.id.login);
-        edtEmail = findViewById(R.id.email);
-        edtPass = findViewById(R.id.password);
-        progressBar = findViewById(R.id.progressBar);
         presenter = new MainPresenterImpl(this);
     }
 

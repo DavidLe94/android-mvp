@@ -2,14 +2,20 @@ package com.android.haule.mvpparttern.Activities;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+
 import java.util.Objects;
 
 public abstract class BaseActivity extends FragmentActivity{
@@ -49,5 +55,17 @@ public abstract class BaseActivity extends FragmentActivity{
                 (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
         assert inputMethodManager != null;
         inputMethodManager.hideSoftInputFromWindow(Objects.requireNonNull(activity.getCurrentFocus()).getWindowToken(), 0);
+    }
+
+    public static void showSnackbar(String str, View  v){
+        Snackbar mSnackBar = Snackbar.make(v, str, Snackbar.LENGTH_SHORT);
+        View view = mSnackBar.getView();
+        FrameLayout.LayoutParams params =(FrameLayout.LayoutParams)view.getLayoutParams();
+        TextView mainTextView = (view).findViewById(android.support.design.R.id.snackbar_text);
+        params.gravity = Gravity.TOP;
+        view.setLayoutParams(params);
+        view.setBackgroundColor(Color.GRAY);
+        mainTextView.setTextColor(Color.WHITE);
+        mSnackBar.show();
     }
 }

@@ -78,12 +78,12 @@ public class MainActivity extends AppCompatActivity implements MainView, View.On
     }
 
     @Override
-    public void navigateToHome() {
+    public void loginSuccess() {
         Toast.makeText(this, "Login success", Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showMessage() {
+    public void loginError() {
         Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show();
     }
 

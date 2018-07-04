@@ -9,9 +9,9 @@ public interface MainView {
 
     void setPasswordError();
 
-    void navigateToHome();
+    void loginSuccess();
 
-    void showMessage();
+    void loginError();
 
     void dataResponse(String res);
 }

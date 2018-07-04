@@ -19,10 +19,10 @@ public class MainPresenterImpl implements MainPresenter {
         loginView.showProgress();
         if(!email.isEmpty() && !password.isEmpty()){
             if(email.equals("Hau") && password.equals("123")){
-                loginView.navigateToHome();
+                loginView.loginSuccess();
                 loginView.hideProgress();
             }else{
-                loginView.showMessage();
+                loginView.loginError();
                 loginView.hideProgress();
             }
         }else{
